@@ -1,0 +1,16 @@
+.hide {
+    display: none;
+}
+
+.pickTeam {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    margin: 2em;
+}
+
+.schedule {
+    display: grid;
+    justify-content: center;
+    margin: 2em;
+}
