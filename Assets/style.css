@@ -13,4 +13,8 @@
     display: grid;
     justify-content: center;
     margin: 2em;
+    padding: 2em;
+    background-color: lightgrey;
+    border: solid black;
+    border-radius: 2em;
 }
