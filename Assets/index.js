@@ -418,6 +418,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "#006db0");
             $("tr:even").css("background-color", "silver");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -459,6 +461,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "#CFB53B");
             $("tr:even").css("background-color", "black");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
