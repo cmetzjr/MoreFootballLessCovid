@@ -1,4 +1,10 @@
 $(document).ready(function () {
+    
+    $("button").on("click", function(){
+        $("#teamGame").empty();    
+
+    });
+
 
     schedule = [
         {
@@ -360,6 +366,8 @@ $(document).ready(function () {
             $("#teamGame").append("<tr><td>"+this+"</td></tr>");
             $("tr:odd").css("background-color", "red");
             $("tr:even").css("background-color", "grey");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -377,6 +385,8 @@ $(document).ready(function () {
             $("#teamGame").append("<tr><td>"+this+"</td></tr>");
             $("tr:odd").css("background-color", "#4B9CD3");
             $("tr:even").css("background-color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -386,6 +396,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "#CC5500");
             $("tr:even").css("background-color", "#000080");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -395,6 +407,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "white");
             $("tr:even").css("background-color", "blue");
             $("tr:even").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -413,6 +427,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "gold");
             $("tr:even").css("background-color", "darkgreen");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -421,6 +437,8 @@ $(document).ready(function () {
             $("#teamGame").append("<tr><td>"+this+"</td></tr>");
             $("tr:odd").css("background-color", "#4169e1");
             $("tr:even").css("background-color", "gold");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -430,6 +448,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "purple");
             $("tr:even").css("background-color", "gold");
             $("tr:odd").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -448,6 +468,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "blue");
             $("tr:even").css("background-color", "red");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -457,6 +479,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "#004953");
             $("tr:even").css("background-color", "#36454f");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -465,6 +489,8 @@ $(document).ready(function () {
             $("#teamGame").append("<tr><td>"+this+"</td></tr>");
             $("tr:odd").css("background-color", "#FF2400");
             $("tr:even").css("background-color", "gold");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -474,6 +500,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "blue");
             $("tr:even").css("background-color", "#39ff14");
             $("tr:odd").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -483,6 +511,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "red");
             $("tr:even").css("background-color", "#36454f");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -492,6 +522,8 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "#800020");
             $("tr:even").css("background-color", "gold");
             $("tr:odd").css("color","white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
@@ -501,6 +533,168 @@ $(document).ready(function () {
             $("tr:odd").css("background-color", "black");
             $("tr:even").css("background-color", "purple");
             $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#BUF").on("click", function() {
+        $.each(schedule[17].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "white");
+            $("tr:even").css("background-color", "#4169e1");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#CIN").on("click", function() {
+        $.each(schedule[18].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "black");
+            $("tr:even").css("background-color", "orange");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#CLE").on("click", function() {
+        $.each(schedule[19].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "brown");
+            $("tr:even").css("background-color", "orange");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#DEN").on("click", function() {
+        $.each(schedule[20].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "Orange");
+            $("tr:even").css("background-color", "#000080");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#HOU").on("click", function() {
+        $.each(schedule[21].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "#03202F");
+            $("tr:even").css("background-color", "#a71930");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+    
+    $("#IND").on("click", function() {
+        $.each(schedule[22].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "blue");
+            $("tr:even").css("background-color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#JAX").on("click", function() {
+        $.each(schedule[23].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "teal");
+            $("tr:even").css("background-color", "black");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#KC").on("click", function() {
+        $.each(schedule[24].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "red");
+            $("tr:even").css("background-color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#LV").on("click", function() {
+        $.each(schedule[25].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "black");
+            $("tr:odd").css("color", "silver");
+            $("tr:even").css("background-color", "silver");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#LAC").on("click", function() {
+        $.each(schedule[26].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "gold");
+            $("tr:even").css("background-color", "#B0E0E6");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#MIA").on("click", function() {
+        $.each(schedule[27].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "#03bb85");
+            $("tr:even").css("background-color", "#00FFFF");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#NE").on("click", function() {
+        $.each(schedule[28].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "#000080");
+            $("tr:even").css("background-color", "red");
+            $("tr").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#NYJ").on("click", function() {
+        $.each(schedule[29].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "green");
+            $("tr:even").css("background-color", "white");
+            $("tr").css("color", "black");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+    
+    $("#PIT").on("click", function() {
+        $.each(schedule[30].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "black");
+            $("tr:even").css("background-color", "gold");
+            $("tr:odd").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
+        });
+    });
+
+    $("#TEN").on("click", function() {
+        $.each(schedule[31].week, function() {
+            $("#teamGame").append("<tr><td>"+this+"</td></tr>");
+            $("tr:odd").css("background-color", "silver");
+            $("tr:even").css("background-color", "lightblue");
+            $("tr:even").css("color", "white");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
