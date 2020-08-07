@@ -705,20 +705,36 @@ $(document).ready(function () {
     //event listener for the drop-down menu
     $(".dropdown-menu a").click(function (event) {
         event.preventDefault();
-
-        //grab the position in the array
-        var arrayPos = parseInt(($(this).attr("arrayPos")));
-
-        //pull state and stadium capacity from football.io API
+        //grab the team name based on user selection
+        selectedTeam = $(this).attr("id");
+        //obtain state and stadium capacity from football.io API
         $.ajax({
             url: "https:/api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
             method: "GET"
         }).then(function (response) {
-            var teamState = response[arrayPos].StadiumDetails.State;
-            var stadiumCap = response[arrayPos].StadiumDetails.Capacity;
-            console.log(teamState + ", " + stadiumCap);
+            //find the object for the selected team
+            let obj = response.find(obj => (obj.Key === selectedTeam));
+            //state the team plays in
+            let teamState = obj.StadiumDetails.State;
+            //stadium capacity
+            let stadiumCap = obj.StadiumDetails.Capacity;
+            console.log("State: " + teamState + ", stadium capacity: " + stadiumCap);
+            //obtain COVID case data from covidtracking API
+            $.ajax({
+                url: "https://covidtracking.com/api/v1/states/current.json",
+                method: "GET"
+            }).then(function (response) {
+                //find the object with the selected state
+                let obj = response.find(obj => (obj.state === teamState));
+                //num people in the state who are positive
+                let positive = obj.positive;
+                console.log("number positive: ", positive);
+            })
         });
-    });
+    });//closes event listener
+
+    //PROBLEM 1: NEED TO MAKE teamState AND stadiumCap AVAILABLE OUTSIDE THE EVENT FUNCTION
+
 
 
     //hard code index of each team to pull state and capacty from sportsdata.io --> Charles
