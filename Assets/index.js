@@ -2,6 +2,7 @@ $(document).ready(function () {
 
     $("button").on("click", function () {
         $("#teamGame").empty();
+        $("#teamName").empty();
 
     });
 
@@ -362,25 +363,57 @@ $(document).ready(function () {
     ];
 
     $("#ARI").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[0].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[0].week, function () {
-            $("#teamGame").append("<tr><td>" + this + "</td></tr>");
+            $("#teamGame").append("<tr class='plzHover' href=#landingPage.html><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "red");
             $("tr:even").css("background-color", "grey");
             $("td").css("padding", "2em");
             $("td").css("border", "solid black");
+
+            
         });
     });
 
     $("#ATL").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[1].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
         $.each(schedule[1].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "black")
             $("tr:odd").css("color", "white");
             $("tr:even").css("background-color", "red");
+            $("td").css("padding", "2em");
+            $("td").css("border", "solid black");
         });
     });
 
     $("#CAR").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[4].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
         $.each(schedule[2].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#4B9CD3");
@@ -391,6 +424,16 @@ $(document).ready(function () {
     });
 
     $("#CHI").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[5].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[3].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#CC5500");
@@ -402,6 +445,16 @@ $(document).ready(function () {
     });
 
     $("#DAL").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[8].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[4].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "white");
@@ -413,6 +466,16 @@ $(document).ready(function () {
     });
 
     $("#DET").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[10].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[5].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#006db0");
@@ -424,6 +487,16 @@ $(document).ready(function () {
     });
 
     $("#GB").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[11].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[6].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "gold");
@@ -435,6 +508,16 @@ $(document).ready(function () {
     });
 
     $("#LAR").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[17].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[7].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#4169e1");
@@ -445,6 +528,16 @@ $(document).ready(function () {
     });
 
     $("#MIN").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[20].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[8].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "purple");
@@ -456,6 +549,16 @@ $(document).ready(function () {
     });
 
     $("#NO").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[22].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[9].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#CFB53B");
@@ -467,6 +570,16 @@ $(document).ready(function () {
     });
 
     $("#NYG").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[23].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[10].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "blue");
@@ -478,6 +591,16 @@ $(document).ready(function () {
     });
 
     $("#PHI").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[25].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[11].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#004953");
@@ -489,6 +612,16 @@ $(document).ready(function () {
     });
 
     $("#SF").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[28].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[12].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#FF2400");
@@ -499,6 +632,16 @@ $(document).ready(function () {
     });
 
     $("#SEA").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[27].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[13].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "blue");
@@ -510,6 +653,16 @@ $(document).ready(function () {
     });
 
     $("#TB").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[29].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[14].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "red");
@@ -521,6 +674,16 @@ $(document).ready(function () {
     });
 
     $("#WAS").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[31].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[15].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#800020");
@@ -532,6 +695,16 @@ $(document).ready(function () {
     });
 
     $("#BAL").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[2].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[16].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "black");
@@ -543,6 +716,16 @@ $(document).ready(function () {
     });
 
     $("#BUF").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[3].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[17].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "white");
@@ -553,6 +736,16 @@ $(document).ready(function () {
     });
 
     $("#CIN").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[6].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[18].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "black");
@@ -564,6 +757,17 @@ $(document).ready(function () {
     });
 
     $("#CLE").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[7].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
+
         $.each(schedule[19].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "brown");
@@ -575,6 +779,16 @@ $(document).ready(function () {
     });
 
     $("#DEN").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[9].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[20].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "Orange");
@@ -586,6 +800,16 @@ $(document).ready(function () {
     });
 
     $("#HOU").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[12].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[21].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#03202F");
@@ -597,6 +821,16 @@ $(document).ready(function () {
     });
 
     $("#IND").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[13].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[22].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "blue");
@@ -607,6 +841,17 @@ $(document).ready(function () {
     });
 
     $("#JAX").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[14].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
+
         $.each(schedule[23].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "teal");
@@ -618,6 +863,16 @@ $(document).ready(function () {
     });
 
     $("#KC").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[15].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[24].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "red");
@@ -628,6 +883,17 @@ $(document).ready(function () {
     });
 
     $("#LV").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[18].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
+
         $.each(schedule[25].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "black");
@@ -639,6 +905,16 @@ $(document).ready(function () {
     });
 
     $("#LAC").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[16].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[26].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "gold");
@@ -649,6 +925,16 @@ $(document).ready(function () {
     });
 
     $("#MIA").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[19].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[27].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#03bb85");
@@ -659,6 +945,16 @@ $(document).ready(function () {
     });
 
     $("#NE").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[21].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[28].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "#000080");
@@ -670,6 +966,17 @@ $(document).ready(function () {
     });
 
     $("#NYJ").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[24].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
+
         $.each(schedule[29].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "green");
@@ -681,6 +988,16 @@ $(document).ready(function () {
     });
 
     $("#PIT").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[26].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[30].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "black");
@@ -692,6 +1009,16 @@ $(document).ready(function () {
     });
 
     $("#TEN").on("click", function () {
+        $.ajax({
+            url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+            method: "GET",
+            dataType: "json",
+            success: function(response) {
+                let teamNameEl = response[30].YahooName;
+            $("#teamName").append("<h1>"+teamNameEl+" Schedule</h1>");
+            }
+        });
+
         $.each(schedule[31].week, function () {
             $("#teamGame").append("<tr><td>" + this + "</td></tr>");
             $("tr:odd").css("background-color", "silver");
@@ -718,6 +1045,7 @@ $(document).ready(function () {
             var stadiumCap = response[arrayPos].StadiumDetails.Capacity;
             console.log(teamState + ", " + stadiumCap);
         });
+
     });
 
 
