@@ -18,3 +18,8 @@
     border: solid black;
     border-radius: 2em;
 }
+
+.plzHover:hover {
+    background-color: purple;
+    cursor: pointer;
+}
