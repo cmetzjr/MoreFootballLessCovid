@@ -408,7 +408,6 @@ $(document).ready(function () {
             let awayTeam = []
             console.log(homeTeamGames)
             for (let i = 0; i < homeTeamGames.length; i++) {
-                awayTeam.empty();
                 awayTeam.push(homeTeamGames[i].AwayTeam);
                 console.log(awayTeam);
             }
