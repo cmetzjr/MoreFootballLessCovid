@@ -702,28 +702,54 @@ $(document).ready(function () {
         });
     });
 
+    let test;
+
     //event listener for the drop-down menu
     $(".dropdown-menu a").click(function (event) {
         event.preventDefault();
-
+        let teamState;
+        let stadiumCap;
         //grab the position in the array
-        var arrayPos = parseInt(($(this).attr("arrayPos")));
+        let arrayPos = parseInt(($(this).attr("arrayPos")));
 
         //pull state and stadium capacity from football.io API
         $.ajax({
             url: "https:/api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
             method: "GET"
         }).then(function (response) {
-            var teamState = response[arrayPos].StadiumDetails.State;
-            var stadiumCap = response[arrayPos].StadiumDetails.Capacity;
+            teamState = response[arrayPos].StadiumDetails.State;
+            stadiumCap = response[arrayPos].StadiumDetails.Capacity;
             console.log(teamState + ", " + stadiumCap);
+
+                $.ajax({
+                    url: "https://covidtracking.com/api/v1/states/current.json",
+                    method: "GET"
+                }).then(function (covidResponse) {
+                    console.log(covidResponse);
+                    console.log(teamState + ", " + stadiumCap) //state array is still jacked up
+                    let obj = covidResponse.find(obj => (obj.state === teamState));
+
+                    let covidRisk;
+                    if (obj.positiveIncrease >= 1000) {
+                        covidRisk = "high";
+                        $("#cityRisk").text("HIGH"); //we need to have the landing page linked up to test this
+                    } else {
+                        covidRisk = "average";
+                        $("#cityRisk").text("AVERAGE"); //we need to have the landing page linked up to test this
+                    }
+                    console.log(covidRisk);
+                })
         });
     });
-
+//"hello this is my branch"
 
     //hard code index of each team to pull state and capacty from sportsdata.io --> Charles
     //display schedule from array based on team selected --> Jake
     //take state, use COVID API to get cases --> Adam
+
+
+
+
     //use cases to create risk level and adjust stadium capacity --> Adam
     //explore maps API to get bar/restaurant/hospital info nearby --> Manuel
 
