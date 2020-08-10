@@ -10,6 +10,8 @@
     padding: 1em;
     border: 1px solid black;
     color: white;
+    font-weight: bold;
+    margin-top: .25em;
 }
 
 .tablerow:hover {
