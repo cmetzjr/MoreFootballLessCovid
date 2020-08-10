@@ -2,6 +2,23 @@
     display: none;
 }
 
+
+.tablerow {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    border: 1px solid black;
+    color: white;
+    font-weight: bold;
+    margin-top: .25em;
+}
+
+.tablerow:hover {
+    background-color: purple;
+    cursor: pointer;
+}
+
 .pickTeam {
     display: grid;
     justify-content: center;
@@ -17,9 +34,4 @@
     background-color: lightgrey;
     border: solid black;
     border-radius: 2em;
-}
-
-.plzHover:hover {
-    background-color: purple;
-    cursor: pointer;
 }
