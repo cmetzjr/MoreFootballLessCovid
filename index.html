@@ -7,64 +7,73 @@
   <link href="./Assets/style.css" rel='stylesheet'>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js">
-
-  </script>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+    integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+  <!-- load JS libraries -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
-    </script>
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
-    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
-
-    </script>
-  <!-- <script src="./Assets/jQuery.js"></script> -->
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+    crossorigin="anonymous"></script>
   <script src="./Assets/index.js"></script>
-  <title>Home Screen</title>
+  <title>Football>COVID</title>
 </head>
 
-<body>
-  <div class='container'>
-    <header class=header>
-      <div class='nav-bar'>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-          <a class="navbar-brand" href="#">
-            <h1>MORE FOOTBALL LESS COVID APP</h1>
-          </a>
-          <h1></h1><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
-            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+<body class="page-wrapper">
+  <!-- background photo by Gravitylicious.com from Pexels -->
 
-            <span class="navbar-toggler-icon"></span>
-          </button> </h1>
-          <div class="collapse navbar-collapse" id="navbarText">
-            <ul class="navbar-nav mr-auto">
-              <li class="nav-item active">
-                <a class="nav-link" href="./index.html">Home <span class="sr-only">(current)</span></a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Closest Hospital</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Saved Game</a>
-              </li>
-            </ul>
-            <span class="navbar-text hide">
-              NERD
-            </span>
-          </div>
-        </nav>
+  <!-- header text -->
+  <header class="greybg mb-3">
+    <h1 class="text-uppercase">More Football Less COVID</h1>
+  </header>
+
+  <main class="container">
+
+    <!-- provides intro to the app -->
+    <div class="hero section-bg">
+      <div class="intro-text">
+        <h3 class="mb-4">Know the COVID risk before you buy your tickets!</h3>
+        <p class="mb-3">Get to the game in three easy steps:</p>
       </div>
-  </div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="card text-center bg-transparent">
+            <div class="card-body">
+              <i class="fas fa-user-friends fa-3x"></i>
+              <p class="card-text mt-2">Select your team</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center bg-transparent">
+            <div class="card-body">
+              <i class="far fa-list-alt fa-3x"></i>
+              <p class="card-text mt-2">Choose your game</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="card text-center bg-transparent">
+            <div class="card-body">
+              <i class="fas fa-briefcase-medical fa-3x"></i>
+              <p class="card-text mt-2">Evaluate your risk</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <div class="container">
 
+    <!-- Code for the dropdown menu -->
     <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
-        aria-haspopup="true" aria-expanded="false">
-        Dropdown button
+      <button class="btn btn-secondary dropdown-toggle mx-auto" type="button" id="dropdownMenuButton"
+        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select your team
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <p class="dropdown-item">NFC Teams:</p>
+        <h5 class="dropdown-item font-weight-bold">NFC Teams:</h5>
         <a id="ARI" class="dropdown-item" href='#' value="WIN">Arizona Cardinals</a>
         <a id="ATL" class="dropdown-item" href='#'>Atlanta Falcons</a>
         <a id="CAR" class="dropdown-item" href='#'>Carolina Panthers</a>
@@ -81,7 +90,7 @@
         <a id="SEA" class="dropdown-item" href='#'>Seattle Seahawks</a>
         <a id="TB" class="dropdown-item" href='#'>Tampa Bay Buccaneers</a>
         <a id="WAS" class="dropdown-item" href='#'>Washington Football Team</a>
-        <p class="dropdown-item">AFC Teams:</p>
+        <h5 class="dropdown-item font-weight-bold mt-2">AFC Teams:</h5>
         <a id="BAL" class="dropdown-item" href='#'>Baltimore Ravens</a>
         <a id="BUF" class="dropdown-item" href='#'>Buffalo Bills</a>
         <a id="CIN" class="dropdown-item" href='#'>Cincinnati Bengals</a>
@@ -100,16 +109,28 @@
         <a id="TEN" class="dropdown-item" href='#'>Tennessee Titans</a>
       </div>
     </div>
-  </div>
+
+    <!--schedule renders here; starts with 50vh height, expands to fit content  -->
+    <div class='schedule section-bg'>
+      <h2 id='teamName' class="mb-5"></h2>
+
+      <ul id="teamGame" class='teamGame'>
+        </table>
+    </div>
+  </main>
+
+  <!-- covid risk data renders here -->
+  <div id="covid-risk">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Itaque, neque repudiandae necessitatibus ad eaque ullam
+    eius nostrum dolores quibusdam tenetur numquam voluptatibus temporibus natus explicabo excepturi laboriosam fugiat
+    hic veniam!
+
   </div>
 
-  <div class='schedule'>
-    <h1 id='teamName'></h1>
 
-    <table id="teamGame" class='teamGame'></table>
-  </div>
-
-  </header>
+  <footer class="footer">
+    <p class="greybg mb-0">Brought to you by: Adam, Charles, Jake, and Manuel </p>
+  </footer>
 </body>
 
 </html>
