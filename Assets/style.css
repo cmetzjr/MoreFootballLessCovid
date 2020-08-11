@@ -42,6 +42,12 @@ li a:active, li a:hover {
     text-decoration: none;
 }
 
+.section-bg {
+    background-color: #f4f4f4;
+    border: solid black;
+    border-radius: 2em;
+}
+
 .tablerow {
     display: grid;
     justify-content: center;
@@ -73,10 +79,9 @@ li a:active, li a:hover {
     min-height: 50vh;
 }
 
-.section-bg {
-    background-color: #f4f4f4;
-    border: solid black;
-    border-radius: 2em;
+/* starts hidden, shown on click */
+#covid-risk {
+    display: none;
 }
 
 .footer {

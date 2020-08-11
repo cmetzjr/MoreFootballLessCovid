@@ -56,7 +56,7 @@ $(document).ready(function () {
                 for (i = 0; i < awayTeamDetails.length; i++) {
                     $("#teamGame")
                         .append($("<li>")
-                            .html('<a href="#covid-risk">' + awayTeamDetails[i].FullName + " @ " + homeTeamFullName + "</a>")
+                            .html('<a href="#risk-info">' + awayTeamDetails[i].FullName + " @ " + homeTeamFullName + "</a>")
                             .addClass("tablerow")
                             .attr("id", "teamRow")
                             .css("background", "linear-gradient(180deg, #" + awayTeamDetails[i].PrimaryColor + " 35%, #" + awayTeamDetails[i].SecondaryColor + " 65%")
@@ -85,6 +85,7 @@ $(document).ready(function () {
                         covidSeats = stadiumCap / 3;
                         covidSeatsBtwn = "2";
                     }
+                    $("#risk-info").addClass("d.block");
                     $("#cityRisk").text("City Risk Level: " + covidRisk);
                     $("#availableSeats").text("Total Available Seats (Adjusted COVID risk): " + covidSeats.toFixed(0));
                     $("#btwnSeats").text("Seats in between seats (based on COVID risk): " + covidSeatsBtwn + "Empty Seats");
