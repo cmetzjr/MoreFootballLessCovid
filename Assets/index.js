@@ -55,12 +55,10 @@ $(document).ready(function () {
                 //loop through opponents
                 for (i = 0; i < awayTeamDetails.length; i++) {
                     $("#teamGame")
-                        .append($("<tr>")
-                            .text(awayTeamDetails[i].FullName + " @ " + homeTeamFullName)
+                        .append($("<li>")
+                            .html('<a href="#risk-info">' + awayTeamDetails[i].FullName + " @ " + homeTeamFullName + "</a>")
                             .addClass("tablerow")
                             .attr("id", "teamRow")
-                            .attr("href", "#landingPage.html")
-                            // .css("background", "linear-gradient(90deg, #" + awayTeamDetails[i].PrimaryColor + " 20%, #" + awayTeamDetails[i].SecondaryColor + " 50%, #" + homeTeamPrimary + " 50%, #" + homeTeamSecondary + " 80%")
                             .css("background", "linear-gradient(180deg, #" + awayTeamDetails[i].PrimaryColor + " 35%, #" + awayTeamDetails[i].SecondaryColor + " 65%")
                         );
                 }
@@ -73,8 +71,24 @@ $(document).ready(function () {
                     //find the object with the selected state
                     let obj = response.find(obj => (obj.state === teamState));
                     //num people in the state who are positive
-                    let positive = obj.positive;
-                    // console.log("number positive: ", positive);
+                    let covidCases = obj.positive;
+                    $("#cases").text("Total Cases: " + covidCases);
+                    // COVID Calculations
+                    let covidRisk;
+                    let covidSeats;
+                    if (obj.positiveIncrease >= 1000) {
+                        covidRisk = "HIGH";
+                        covidSeats = stadiumCap / 4;
+                        covidSeatsBtwn = "3";
+                    } else {
+                        covidRisk = "AVERAGE";
+                        covidSeats = stadiumCap / 3;
+                        covidSeatsBtwn = "2";
+                    }
+                    $("#risk-info").addClass("d.block");
+                    $("#cityRisk").text("City Risk Level: " + covidRisk);
+                    $("#availableSeats").text("Total Available Seats (Adjusted COVID risk): " + covidSeats.toFixed(0));
+                    $("#btwnSeats").text("Seats in between seats (based on COVID risk): " + covidSeatsBtwn + "Empty Seats");
                 })
             });
         });
