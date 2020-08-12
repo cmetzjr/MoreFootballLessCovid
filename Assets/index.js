@@ -1,3 +1,5 @@
+
+
 $(document).ready(function () {
 
     $("button").on("click", function () {
@@ -19,7 +21,7 @@ $(document).ready(function () {
             //just the games where the selected team is home
             let homeTeamGames = response.filter(homeTeamGames => (homeTeamGames.HomeTeam === selectedTeam && homeTeamGames.AwayTeam != "BYE"));
 
-            //array of the opponents
+            //array of the opponents' abbreviations
             let awayTeams = []
             for (let i = 0; i < homeTeamGames.length; i++) {
                 awayTeams.push(homeTeamGames[i].AwayTeam);
@@ -34,79 +36,21 @@ $(document).ready(function () {
                 let obj = response.find(obj => (obj.Key === selectedTeam));
                 //team's full name
                 var homeTeamFullName = obj.FullName;
-                //state the team plays in
-                let teamState = obj.StadiumDetails.State;
-                //team's primary color
-                let homeTeamPrimary = obj.PrimaryColor;
-                //team's secondary color
-                let homeTeamSecondary = obj.SecondaryColor;
-                //stadium capacity, name, city
+                //stadium details - capacity, name, city, state
                 let stadiumCap = obj.StadiumDetails.Capacity;
                 let stadium = obj.StadiumDetails.Name;
                 let city = obj.StadiumDetails.City
+                let teamState = obj.StadiumDetails.State;
 
+                //array of team info for the away teams
                 let awayTeamDetails = [];
                 awayTeams.map(function (currentAwayTeam) {
                     awayTeamDetails.push(response.find(obj => (obj.Key === currentAwayTeam)))
                 })
-                console.log(awayTeamDetails);
-
-                var state = teamState
-
- 
-                
-
-                let lat = obj.StadiumDetails.GeoLat
-
-               
-                    
-                let lon = obj.StadiumDetails.GeoLong
-
-                
-
-var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM"
-
-
-var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
-
-$.ajax({
-    url: oneCallApi,
-    method: "GET"
-  })
-
-  .then(function (data) {
-      // Create the script tag, set the appropriate attributes
-var script = document.createElement('script');
-
-let map;
-
-      function initMap() {
-        let lat = obj.StadiumDetails.GeoLat;
-        
-        let lon = obj.StadiumDetails.GeoLong;
-          console.log(lon);
-          console.log(lat);
-        map = new google.maps.Map(document.getElementById("map"), {
-          center: {
-            lat: lat,
-            lng: lon
-          },
-          zoom: 14
-
-        });
-    
-
-      }
-     
-      initMap();
-      
-
-
-    console.log(data)
 
                 //create the heading
                 $("#teamName").html(homeTeamFullName + " Home Schedule");
-
+                $("#scheduleArea").removeClass("d-none");
                 //loop through opponents
                 for (i = 0; i < awayTeamDetails.length; i++) {
                     $("#teamGame")
@@ -116,9 +60,39 @@ let map;
                             .attr("id", "teamRow")
                             .css("background", "linear-gradient(180deg, #" + awayTeamDetails[i].PrimaryColor + " 35%, #" + awayTeamDetails[i].SecondaryColor + " 65%")
                         );
+                };
 
-                        
-                }
+
+                //call Google Maps API
+                const lat = obj.StadiumDetails.GeoLat
+                const lon = obj.StadiumDetails.GeoLong
+                console.log(lat + ", " + lon)
+                var state = teamState;
+                // var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM";
+                // var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
+
+                // $.ajax({
+                //     url: oneCallApi,
+                //     method: "GET",
+                //     type: "json"
+                // }).then(function () {
+                //     console.log(lat);
+                    
+
+
+                    // Create the script tag, set the appropriate attributes
+                    let map;
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            center: {
+                                lat: lat,
+                                lng: lon
+                            },
+                            zoom: 12
+                        });
+                    }
+                    initMap();
+
 
 
                 //obtain COVID case data from covidtracking API
@@ -129,7 +103,7 @@ let map;
                     //find the object with the selected state
                     let obj = response.find(obj => (obj.state === teamState));
                     //num people in the state who are positive
-                    let covidCases = obj.positive;
+                    let covidCases = obj.positive.toLocaleString();
                     // COVID Calculations
                     let covidRisk;
                     let covidSeats;
@@ -137,14 +111,13 @@ let map;
                         covidRisk = "HIGH";
                         covidSeats = stadiumCap / 4;
                         covidSeatsBtwn = "3";
+                        $("#cityRisk").addClass("bg-red")
                     } else {
                         covidRisk = "AVERAGE";
                         covidSeats = stadiumCap / 3;
                         covidSeatsBtwn = "2";
+                        $("#cityRisk").addClass("bg-yellow")
                     }
-
-                   
-                    
 
                     //update game location(staidum/city)
                     $("#stadium").text(stadium);
@@ -154,14 +127,16 @@ let map;
                     $("#cityRisk").text(covidRisk);
                     $("#availableSeats").text(covidSeats.toFixed(0));
                     $("#btwnSeats").text(covidSeatsBtwn);
-                    console.log(covidCases);
 
-                })
 
-                
-            });
-        });
-    });//closes event listener
+
+                })//closes COVID API
+
+            });//closes Teams API call
+
+        });//closes Shedules API call
+
+    });//closes event listener on teams in dropdown
 
 });//closes ready fcn
 
@@ -170,6 +145,3 @@ let map;
     // https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3
 
     // https://api.sportsdata.io/v3/nfl/scores/json/Stadiums?key=6306de6ffce1432bae3dc370a38a8de3
-
-  
-});
