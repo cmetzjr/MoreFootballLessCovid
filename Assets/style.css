@@ -88,10 +88,18 @@ padding: 1em;
     height: 3rem;
 }
 
+
+#map {
+    height: 250px;
+}
+
 @media (min-width: 720px){
     .greybg {
         padding: 2em .25em;
     }
+
+
+
 
 
 
