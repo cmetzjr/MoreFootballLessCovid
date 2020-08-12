@@ -7,15 +7,11 @@
     background-attachment: fixed;
 }
 
-.greybg {
-    background-color: rgba(179, 179, 179, 0.6);
-    color: black;
+.blackbg {
+    background-color: black;
+    color: white;
     text-align: center;
     padding: 1em .25em;
-}
-
-.hide {
-    display: none;
 }
 
 .hero {
@@ -43,7 +39,7 @@ li a:active, li a:hover {
 }
 
 .section-bg {
-    background-color: #f4f4f4;
+    background-color:  rgba(179, 179, 179, 0.8);
     border: solid black;
     border-radius: 2em;
 }
@@ -79,9 +75,8 @@ li a:active, li a:hover {
     min-height: 50vh;
 }
 
-/* starts hidden, shown on click */
-#covid-risk {
-    display: none;
+#risk-info {
+padding: 1em;
 }
 
 .footer {
