@@ -49,6 +49,59 @@ $(document).ready(function () {
                 })
                 console.log(awayTeamDetails);
 
+                var state = teamState
+
+ 
+                
+
+                let lat = obj.StadiumDetails.GeoLat
+
+               
+                    
+                let lon = obj.StadiumDetails.GeoLong
+
+                
+
+var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM"
+
+
+var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
+
+$.ajax({
+    url: oneCallApi,
+    method: "GET"
+  })
+
+  .then(function (data) {
+      // Create the script tag, set the appropriate attributes
+var script = document.createElement('script');
+
+let map;
+
+      function initMap() {
+        let lat = obj.StadiumDetails.GeoLat;
+        
+        let lon = obj.StadiumDetails.GeoLong;
+          console.log(lon);
+          console.log(lat);
+        map = new google.maps.Map(document.getElementById("map"), {
+          center: {
+            lat: lat,
+            lng: lon
+          },
+          zoom: 14
+
+        });
+    
+
+      }
+     
+      initMap();
+      
+
+
+    console.log(data)
+
                 //create the heading
                 $("#teamName").html(homeTeamFullName + " Home Schedule");
 
@@ -61,7 +114,10 @@ $(document).ready(function () {
                             .attr("id", "teamRow")
                             .css("background", "linear-gradient(180deg, #" + awayTeamDetails[i].PrimaryColor + " 35%, #" + awayTeamDetails[i].SecondaryColor + " 65%")
                         );
+
+                        
                 }
+
 
                 //obtain COVID case data from covidtracking API
                 $.ajax({
@@ -89,7 +145,11 @@ $(document).ready(function () {
                     $("#cityRisk").text("City Risk Level: " + covidRisk);
                     $("#availableSeats").text("Total Available Seats (Adjusted COVID risk): " + covidSeats.toFixed(0));
                     $("#btwnSeats").text("Seats in between seats (based on COVID risk): " + covidSeatsBtwn + "Empty Seats");
+
+                    
                 })
+
+                
             });
         });
     });//closes event listener
@@ -102,4 +162,5 @@ $(document).ready(function () {
 
     // https://api.sportsdata.io/v3/nfl/scores/json/Stadiums?key=6306de6ffce1432bae3dc370a38a8de3
 
-    // https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2020?key=6306de6ffce1432bae3dc370a38a8de3
+  
+});

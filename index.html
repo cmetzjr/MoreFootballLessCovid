@@ -17,8 +17,18 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
     integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
     crossorigin="anonymous"></script>
+   
+
+    <link rel="stylesheet" type="text/css" href="./style.css" />
   <script src="./Assets/index.js"></script>
+
   <title>Football>COVID</title>
+  <!-- Google Maps -->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM&callback=initMap&libraries=&v=weekly"
+      defer
+    ></script>
 </head>
 
 <body class="page-wrapper">
@@ -124,6 +134,8 @@
       <div id="availableSeats"></div>
       <div id="btwnSeats"></div>
     </div>
+    
+    <div id="map"></div>
 
   </main>
 
