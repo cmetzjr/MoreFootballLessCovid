@@ -1,12 +1,4 @@
-function initMap() {
-    map = new google.maps.Map(document.getElementById("map"), {
-        center: {
-            lat: lat,
-            lng: lon
-        },
-        zoom: 14
-    });
-}
+
 
 $(document).ready(function () {
 
@@ -72,26 +64,35 @@ $(document).ready(function () {
 
 
                 //call Google Maps API
-                let lat = obj.StadiumDetails.GeoLat
-                let lon = obj.StadiumDetails.GeoLong
+                const lat = obj.StadiumDetails.GeoLat
+                const lon = obj.StadiumDetails.GeoLong
                 console.log(lat + ", " + lon)
                 var state = teamState;
-                var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM";
-                var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
+                // var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM";
+                // var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
 
-                $.ajax({
-                    url: oneCallApi,
-                    method: "GET"
-                }).then(function (data) {
+                // $.ajax({
+                //     url: oneCallApi,
+                //     method: "GET",
+                //     type: "json"
+                // }).then(function () {
+                //     console.log(lat);
+                    
 
 
                     // Create the script tag, set the appropriate attributes
-                    var script = document.createElement('script');
                     let map;
-
+                    function initMap() {
+                        map = new google.maps.Map(document.getElementById("map"), {
+                            center: {
+                                lat: lat,
+                                lng: lon
+                            },
+                            zoom: 12
+                        });
+                    }
                     initMap();
 
-                });//closes Google Maps API
 
 
                 //obtain COVID case data from covidtracking API
