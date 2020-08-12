@@ -71,6 +71,29 @@ $(document).ready(function () {
                 };
 
 
+                //call Google Maps API
+                let lat = obj.StadiumDetails.GeoLat
+                let lon = obj.StadiumDetails.GeoLong
+                console.log(lat + ", " + lon)
+                var state = teamState;
+                var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM";
+                var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
+
+                $.ajax({
+                    url: oneCallApi,
+                    method: "GET"
+                }).then(function (data) {
+
+
+                    // Create the script tag, set the appropriate attributes
+                    var script = document.createElement('script');
+                    let map;
+
+                    initMap();
+
+                });//closes Google Maps API
+
+
                 //obtain COVID case data from covidtracking API
                 $.ajax({
                     url: "https://covidtracking.com/api/v1/states/current.json",
@@ -105,27 +128,6 @@ $(document).ready(function () {
                     $("#btwnSeats").text(covidSeatsBtwn);
 
 
-                    //call Google Maps API
-                    var state = teamState;
-                    var ApiKey = "AIzaSyCIe1mV6aksKfFkYsuJHOmQgse94B6ZHzM";
-                    var oneCallApi = `https://maps.googleapis.com/maps/api/staticmap?center=${state}=13&size=600x300&maptype=roadmap&markers=color:blue%7Clabel:S%7C40.702147,-74.015794&markers=color:green%7Clabel:G%7C40.711614,-74.012318&markers=color:red%7Clabel:C%7C40.718217,-73.998284&key=${ApiKey}`;
-
-                    $.ajax({
-                        url: oneCallApi,
-                        method: "GET"
-                    }).then(function (data) {
-                        console.log(data)
-
-                        let lat = obj.StadiumDetails.GeoLat
-                        let lon = obj.StadiumDetails.GeoLong
-                        console.log(lat + ", " + lon)
-                        // Create the script tag, set the appropriate attributes
-                        var script = document.createElement('script');
-                        let map;
-
-                        initMap();
-
-                    });//closes Google Maps API
 
                 })//closes COVID API
 
