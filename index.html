@@ -25,7 +25,7 @@
   <!-- background photo by Gravitylicious.com from Pexels -->
 
   <!-- header text -->
-  <header class="greybg mb-3">
+  <header class="blackbg mb-3">
     <h1 class="text-uppercase">More Football Less COVID</h1>
   </header>
 
@@ -67,9 +67,9 @@
 
 
     <!-- Code for the dropdown menu -->
-    <div class="dropdown">
-      <button class="btn btn-secondary dropdown-toggle mx-auto" type="button" id="dropdownMenuButton"
-        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <div class="dropdown text-center">
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
         Select your team
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -116,13 +116,14 @@
       <ul id="teamGame" class='teamGame'>
     </div>
 
-
     <!-- covid risk data renders here -->
-    <div id="risk-info" class="section-bg">
-      <div id="cases"></div>
-      <div id="cityRisk"></div>
-      <div id="availableSeats"></div>
-      <div id="btwnSeats"></div>
+    <div id="risk-info" class="section-bg d-none">
+      <h2 id="stadium" class="text-center"></h2>
+      <h5 id="city" class="text-center mb-3"></h5>
+      <p>Number of Cases: <span id="cases"></span></p>
+      <p>City Risk Level: <span id="cityRisk"></span></p>
+      <p>Total Available Seats (Adjusted COVID risk): <span id="availableSeats"></span></p>
+      <p>Seats in between seats (based on COVID risk): <span id="btwnSeats"></span></p>
     </div>
 
   </main>
@@ -130,7 +131,7 @@
 
 
   <footer class="footer">
-    <p class="greybg mb-0">Brought to you by: Adam, Charles, Jake, and Manuel </p>
+    <p class="blackbg mb-0">Brought to you by: Adam, Charles, Jake, and Manuel </p>
   </footer>
 </body>
 
