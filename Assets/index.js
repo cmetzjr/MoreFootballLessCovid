@@ -40,8 +40,10 @@ $(document).ready(function () {
                 let homeTeamPrimary = obj.PrimaryColor;
                 //team's secondary color
                 let homeTeamSecondary = obj.SecondaryColor;
-                //stadium capacity
+                //stadium capacity, name, city
                 let stadiumCap = obj.StadiumDetails.Capacity;
+                let stadium = obj.StadiumDetails.Name;
+                let city = obj.StadiumDetails.City
 
                 let awayTeamDetails = [];
                 awayTeams.map(function (currentAwayTeam) {
@@ -72,7 +74,6 @@ $(document).ready(function () {
                     let obj = response.find(obj => (obj.state === teamState));
                     //num people in the state who are positive
                     let covidCases = obj.positive;
-                    $("#cases").text("Total Cases: " + covidCases);
                     // COVID Calculations
                     let covidRisk;
                     let covidSeats;
@@ -85,10 +86,15 @@ $(document).ready(function () {
                         covidSeats = stadiumCap / 3;
                         covidSeatsBtwn = "2";
                     }
-                    $("#risk-info").addClass("d.block");
-                    $("#cityRisk").text("City Risk Level: " + covidRisk);
-                    $("#availableSeats").text("Total Available Seats (Adjusted COVID risk): " + covidSeats.toFixed(0));
-                    $("#btwnSeats").text("Seats in between seats (based on COVID risk): " + covidSeatsBtwn + "Empty Seats");
+                    //update game location(staidum/city)
+                    $("#stadium").text(stadium);
+                    $("#city").text(city + ", " + teamState);
+                    $("#risk-info").removeClass("d-none");
+                    $("#cases").text(covidCases);
+                    $("#cityRisk").text(covidRisk);
+                    $("#availableSeats").text(covidSeats.toFixed(0));
+                    $("#btwnSeats").text(covidSeatsBtwn);
+                    console.log(covidCases);
                 })
             });
         });
