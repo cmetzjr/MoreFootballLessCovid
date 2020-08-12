@@ -49,9 +49,6 @@ $(document).ready(function () {
                 let stadium = obj.StadiumDetails.Name;
                 let city = obj.StadiumDetails.City
                 let teamState = obj.StadiumDetails.State;
-                let lat = obj.StadiumDetails.GeoLat
-                let lon = obj.StadiumDetails.GeoLong
-                console.log(lat + ", " + lon)
 
                 //array of team info for the away teams
                 let awayTeamDetails = [];
@@ -119,6 +116,9 @@ $(document).ready(function () {
                     }).then(function (data) {
                         console.log(data)
 
+                        let lat = obj.StadiumDetails.GeoLat
+                        let lon = obj.StadiumDetails.GeoLong
+                        console.log(lat + ", " + lon)
                         // Create the script tag, set the appropriate attributes
                         var script = document.createElement('script');
                         let map;
