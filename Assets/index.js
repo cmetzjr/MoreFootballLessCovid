@@ -83,13 +83,20 @@ $(document).ready(function () {
                     // Create the script tag, set the appropriate attributes
                     let map;
                     function initMap() {
-                        map = new google.maps.Map(document.getElementById("map"), {
-                            center: {
+                        map = new google.maps.StreetViewPanorama(document.getElementById("map"), {
+                            position: {
                                 lat: lat,
                                 lng: lon
                             },
-                            zoom: 12
+                            pov: {
+                                heading: 34,
+                                pitch: 10
+                            }
+                            
+
                         });
+                        map.setStreetView(panorama);
+
                     }
                     initMap();
 
