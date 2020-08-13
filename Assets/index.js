@@ -98,8 +98,6 @@ $(document).ready(function () {
                         map.setStreetView(panorama);
 
                     }
-                    initMap();
-
 
 
                 //obtain COVID case data from covidtracking API
@@ -138,6 +136,8 @@ $(document).ready(function () {
 
 
                 })//closes COVID API
+                initMap();
+
 
             });//closes Teams API call
 
