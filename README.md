@@ -2,7 +2,7 @@
 Project 1 for Rutgers Coding Bootcamp<br>
 https://manuelpierre.github.io/MoreFootballLessCovid/
 
-This app was developed in recognition of two facts - NFL fans want to attend football games this season, but they also want to minimize their risk of contracting COVID-19. Version 1.0 of MoreFootballLessCOVID allows the user to evaluate the risk of attending games around the NFL. 
+This app was developed in recognition of two facts - NFL fans want to attend football games this season, but they also want to minimize their risk of contracting COVID-19. Version 1.0 of *MoreFootballLessCOVID* allows the user to evaluate the risk of attending games around the NFL. 
 
 ## Functionality
 
