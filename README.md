@@ -30,9 +30,9 @@ Future versions of the app will:
 This app was the result of hard work by Adam Jones, Charles Metzger, Jake Simon, and Manuel Pierre.
 
 ## Screenshots
-Upon loading the page, before selecting a team:
+Upon loading the page, before selecting a team:<br>
 <img src="screenshots/desktop-pre-teamselect.jpg" width="200px">
 
-After selecting a team from the drop-down menu:
+After selecting a team from the drop-down menu:<br>
 <img src="screenshots/desktop-teamselected.jpg" width="200px">
 
