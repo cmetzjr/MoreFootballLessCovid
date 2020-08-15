@@ -132,7 +132,10 @@ $(document).ready(function () {
                     $("#risk-info").removeClass("d-none");
                     $("#cases").text(covidCases);
                     $("#cityRisk").text(covidRisk);
-                    $("#availableSeats").text(covidSeats.toFixed(0));
+                    $("#availableSeats").text(covidSeats
+                        .toFixed(0)
+                        .toString()
+                        .replace(/\B(?=(\d{3})+(?!\d))/g, ","));
                     $("#btwnSeats").text(covidSeatsBtwn);
 
 
