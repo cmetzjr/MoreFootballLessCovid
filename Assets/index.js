@@ -13,9 +13,11 @@ $(document).ready(function () {
         //grab the team name based on user selection
         selectedTeam = $(this).attr("id");
 
+        var queryURL = "https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2020?key=6306de6ffce1432bae3dc370a38a8de3"
+
         // use football.io Schedules API to create an array of opponents of the selected team
         $.ajax({
-            url: "https://api.sportsdata.io/v3/nfl/scores/json/Schedules/2020?key=6306de6ffce1432bae3dc370a38a8de3",
+            url: queryURL,
             method: "GET"
         }).then(function (response) {
             //just the games where the selected team is home
@@ -29,7 +31,7 @@ $(document).ready(function () {
 
             //use football.io Teams API to obtain opponent info, state, and capacity 
             $.ajax({
-                url: "https:/api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+                url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
                 method: "GET"
             }).then(function (response) {
                 //find the abbreviation for the selected team
@@ -77,27 +79,27 @@ $(document).ready(function () {
                 //     type: "json"
                 // }).then(function () {
                 //     console.log(lat);
-                    
 
 
-                    // Create the script tag, set the appropriate attributes
-                    let map;
-                    function initMap() {
-                        map = new google.maps.StreetViewPanorama(document.getElementById("map"), {
-                            position: {
-                                lat: lat,
-                                lng: lon
-                            },
-                            pov: {
-                                heading: 34,
-                                pitch: 10
-                            }
-                            
 
-                        });
-                        map.setStreetView(panorama);
+                // Create the script tag, set the appropriate attributes
+                let map;
+                function initMap() {
+                    map = new google.maps.StreetViewPanorama(document.getElementById("map"), {
+                        position: {
+                            lat: lat,
+                            lng: lon
+                        },
+                        pov: {
+                            heading: 34,
+                            pitch: 10
+                        }
 
-                    }
+
+                    });
+                    map.setStreetView(panorama);
+
+                }
 
 
                 //obtain COVID case data from covidtracking API
