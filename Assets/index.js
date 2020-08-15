@@ -29,7 +29,7 @@ $(document).ready(function () {
 
             //use football.io Teams API to obtain opponent info, state, and capacity 
             $.ajax({
-                url: "https:/api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
+                url: "https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=6306de6ffce1432bae3dc370a38a8de3",
                 method: "GET"
             }).then(function (response) {
                 //find the abbreviation for the selected team
